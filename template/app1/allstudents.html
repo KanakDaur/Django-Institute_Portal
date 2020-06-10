@@ -1,0 +1,17 @@
+{% extends 'app1/base.html' %}
+{% block body_block %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="container col-lg-4">
+    <h1>All students list</h1><hr>
+
+    {% for stud in students %}
+      Name of student : {{stud.stu_name}}<br>
+      Registration number : {{stud.registration_num}}<br>
+      Class : {{stud.name_of_class}}<hr>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

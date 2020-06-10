@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Signup page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style media="screen">
+      .container{
+        padding-top: 8px;
+        margin-top: 70px;
+        width: 550px;
+
+      }
+      body{
+        background-image:url("{% static 'img/one.jpeg' %}");
+        background-repeat:no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <center><br>
+      <div class="container" style="border:1px solid grey;">
+      <h1>You have been logged out successfully</h1><hr>
+        Want to login again: <a href="/accounts/login">Click here</a><br><br>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "app1/base.html" %}
+
+{% block body_block %}
+<div class="container">
+<center>
+<form method="POST">
+  <h4>Do you want to delete student {{student.stu_name|upper}}'s record ?</h4><br>
+  {% csrf_token %}
+  <input type="submit" value="Delete" class="btn btn-danger">
+ <a href="/editdeletestudents" class="btn btn-info">Cancel</a><br><br>
+</form>
+
+</div>
+{% endblock %}

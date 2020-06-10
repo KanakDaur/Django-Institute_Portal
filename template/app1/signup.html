@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Signup page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style media="screen">
+      .container{
+        padding-top: 8px;
+        margin-top: 70px;
+        width: 450px;
+
+      }
+      body{
+        background-image:url("{% static 'img/one.jpeg' %}");
+        background-repeat:no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    {% load crispy_forms_tags %}
+    <center><br>
+      <div class="container" style="border:1px solid grey;">
+      <h1>Signup form </h1><hr>
+        <form method="post">
+          {{sform | crispy}}
+            {% csrf_token %}<hr>
+          <input type="submit" value="Sign-up" class="btn btn-primary btn-block"><hr>
+        </form>
+        Already Registered : <a href="/accounts/login">Log-In</a><br><br>
+      </div>
+  </body>
+</html>

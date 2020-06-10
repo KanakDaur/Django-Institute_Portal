@@ -1,0 +1,302 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+    <title></title>
+  </head>
+  <body>
+
+
+    <style>
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  background-color: blue;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+
+
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    /* Fixed sidenav, full height */
+    .sidenav {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 10;
+      left: 0;
+      background-color: #111;
+      overflow-x:auto;
+      padding-top: 15px;
+    }
+
+    /* Style the sidenav links and the dropdown button */
+    .sidenav a, .dropdown-btn {
+      padding: 0px 6px 20px 50px;
+      text-decoration: none;
+      font-size: 15px;
+      color: white;
+      display: block;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* On mouse-over */
+    .sidenav a:hover, .dropdown-btn:hover {
+      color: gray;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 200px; /* Same as the width of the sidenav */
+      font-size: 20px; /* Increased text to enable scrolling */
+      padding: 0px 10px;
+    }
+
+    /* Add an active class to the active dropdown button */
+    .active {
+      background-color: green;
+      color: white;
+    }
+
+    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+    .dropdown-container {
+      display: none;
+      background-color: #262626;
+      padding-left: 8px;
+    }
+
+    /* Optional: Style the caret down icon */
+    .fa-caret-down {
+      float: right;
+      padding-right: 8px;
+    }
+
+    /* Some media queries for responsiveness */
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+    </style>
+    </head>
+    <body>
+
+
+          <!-- navbar starts -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+
+      <a class="" href="#"><i class="fa fa-fw fa-home"></i> Edsystango logo</a>
+      <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a href="/accounts/login"><i class="fa fa-fw fa-user"></i> Login</a>
+      <a href="/accounts/logout"><i class="fa fa-fw fa-user"></i> Logout</a>
+      <a href="/signup"><i class="fa fa-fw fa-user"></i> Signup</a>
+
+
+          <form class="navbar-search pull-left input-append" action="requestmanager  " method="post">
+              <input type="radio" name="s" value="S" id="P" class="present" checked><label for="P" id=label><img src="{% static 'images/search_std_icon.jpg' %}" style="width:20px;height;20px;"></label>
+              <input type="radio" name="s" value="E" id="L" class="leave"><label for="L" id=label><img src="{% static 'images/search_emp_icon.jpg' %}" style="width:20px;height;20px;"></label>
+
+              <input type="text" placeholder="ID" name="id">
+              <button class="btn btn-warning" type="submit" name="dashboard">
+                  <i class="fa fa-search"></i> </button>
+          </form>
+
+    </div>
+  </div>
+</div>
+
+        <!-- navbar ends -->
+
+
+
+
+        <!-- side navbar start -->
+<div class="">
+    <div class="sidenav">
+      <li><a href="dashboard">Dashboard</a></li>
+      <li><a href="/schoolinfo"></i>Institute Info </a></li>
+      <li><a class="collapsed" data-toggle="collapse" href="#togglePages">Classes</a>
+          <ul id="togglePages" class="collapse unstyled">
+            <li><a href="/allclasses"> All Classes </a></li>
+            <li><a href="/addclass"> New Class </a></li>
+            <li><a href="/editclassdetail">Edit/Delete A Class </a></li>
+  					<li><a href="showsubjects">Subjects To Classes </a></li>
+            <li><a href="subjects  "><i class="icon-plus"></i> Add Subjects </a></li>
+          </ul>
+
+
+                                  </li>
+  								<li><a class="collapsed" data-toggle="collapse" href="#togglePages1"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Students </a>
+                                      <ul id="togglePages1" class="collapse unstyled">
+                                          <li><a href="allstudents  "><i class="icon-group"></i> All Students </a></li>
+                                          <li><a href="admission  "><i class="icon-plus"></i> New Student/Admission </a></li>
+                                          <li><a href="allstudents  "><i class="icon-pencil"></i> Edit/Delete A Student </a></li>
+  										<li><a href="stdregal  "><i class="icon-book"></i> Admission Letter </a></li>
+
+                                      </ul>
+                                  </li>
+  								<li><a class="collapsed" data-toggle="collapse" href="#togglePages2"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Employees </a>
+                                      <ul id="togglePages2" class="collapse unstyled">
+                                          <li><a href="allemployees  "><i class="icon-group"></i> All Employees </a></li>
+                                          <li><a href="addnewteacher  "><i class="icon-plus"></i> New Employee </a></li>
+                                          <li><a href="allemployees  "><i class="icon-pencil"></i> Edit/Delete An Employee </a></li>
+
+
+                                      </ul>
+                                  </li>
+  								                <li><a class="collapsed" data-toggle="collapse" href="#togglePages3"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Accounts </a>
+                                      <ul id="togglePages3" class="collapse unstyled">
+                                          <li><a href="balance  "><i class="icon-bar-chart"></i> Account Statement </a></li>
+                                          <li><a href="income  "><i class="icon-plus"></i> Add Income </a></li>
+                                          <li><a href="expense  "><i class="icon-plus"></i> Add Expense </a></li>
+
+
+                                      </ul>
+                                  </li>
+  								<li><a class="collapsed" data-toggle="collapse" href="#togglePages4"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Attendance </a>
+                                      <ul id="togglePages4" class="collapse unstyled">
+                                          <li><a href="markatt  "><i class="icon-hand-up"></i> Mark Students Attendance </a></li>
+                                          <li><a href="markeatt  "><i class="icon-hand-up"></i> Mark Employees Attendance </a></li>
+                                          <li><a href="attreport  "><i class="icon-bar-chart"></i> Today Attendance Report </a></li>
+  										<li><a href="allatt  "><i class="icon-copy"></i> Students Attendance Report </a></li>
+                                          <li><a href="alleatt  "><i class="icon-copy"></i> Employees Attendance Report </a></li>
+
+                                      </ul>
+                                  </li>
+  								<li><a class="collapsed" data-toggle="collapse" href="#togglePages5"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Fees </a>
+                                      <ul id="togglePages5" class="collapse unstyled">
+                                          <li><a href="submitfees.html"><i class="icon-money"></i> Submit Fee </a></li>
+                                          <li><a href="stdregfs  "><i class="icon-paste"></i>Get Fee Slip </a></li>
+                                          <li><a href="defualter  "><i class="icon-user"></i> Fee Defaulters </a></li>
+
+
+                                      </ul>
+                                  </li>
+
+                                  <li><a href="submitsalary  "><i class="menu-icon icon-money"></i>Salary</a></li>
+                                  <li><a class="collapsed" data-toggle="collapse" href="#togglePages6"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Exams </a>
+                                      <ul id="togglePages6" class="collapse unstyled">
+                                          <li><a href="addexam.html"><i class="icon-plus"></i> New Exam </a></li>
+                                          <li><a href="selectexam  "><i class="icon-plus"></i> Add/Update Exam Data </a></li>
+                                          <li><a href="searchexamresult  "><i class="icon-bar-chart"></i> Exam Result Card </a></li>
+
+
+                                      </ul>
+                                  </li>
+  								<li><a class="collapsed" data-toggle="collapse" href="#togglePages7"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Class Test </a>
+                                      <ul id="togglePages7" class="collapse unstyled">
+                                          <li><a href="classtest  "><i class="icon-plus"></i> New Class Test </a></li>
+
+                                          <li><a href="alltest  "><i class="icon-bar-chart"></i> Test Reports </a></li>
+
+
+                                      </ul>
+                                  </li>
+                                  <li><a href=""><i class="menu-icon icon-time"></i>Time Table </a></li>
+  								                <li><a class="collapsed" data-toggle="collapse" href="#togglePages8"><i class="menu-icon icon-reorder">
+                                  </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
+                                  </i>Certificates </a>
+                                      <ul id="togglePages8" class="collapse unstyled">
+                                          <li><a href="leavecertificate  "><i class="icon-paste"></i> Leave Certificate </a></li>
+                                          <li><a href="charactercertificate  "><i class="icon-paste"></i> Character Certificate </a></li>
+
+
+
+                                      </ul>
+                                  </li>
+  								<li><a href=""><i class="icon-arrow-up"></i> Students Promotions </a></li>
+
+                                  <li><a href="logout  "><i class="menu-icon icon-signout"></i>Logout </a></li>
+                              </ul>
+
+    </div>
+  </div>
+
+          <!-- side navbar end -->
+
+
+
+
+</body>
+</html>

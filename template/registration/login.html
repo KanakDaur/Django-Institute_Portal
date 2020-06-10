@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style media="screen">
+      .outerdiv{
+        width:400px;
+        margin-top:60px;
+        margin-left:40px;
+        padding-top: 5px;
+      }
+      body{
+        background-image:url("{% static 'img/one.jpeg' %}");
+        background-repeat:no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    {% load crispy_forms_tags %}
+  <div class="outerdiv" style="border: 1px solid grey;">
+    <div class="container">
+
+    <center>
+        <h2>Admin Portal </h2><hr>
+          <img src="{% static 'img/admin2.png'%}" height="100px" width="100px" class="rounded-circle"><br><br>
+    <form method="post">
+      {{form | crispy}}
+      {% csrf_token %}<br>
+      <input type="submit" class="btn btn-primary btn-block" value="Log-In">
+    </form><br>
+    Don't have an account<br><a href="/signup">Register Now</a>
+    <br><br>
+  </div>
+  </body>
+</html>
